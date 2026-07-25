@@ -1,0 +1,94 @@
+[![Deploy to GitHub Pages](https://img.shields.io/badge/🚀-Live_Demo-2ea44f)](https://yourusername.github.io/tube/)
+
+MIT License
+
+Copyright (c) 2024 Rashed Rabia
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+# 🎬 Tube - منصة الفيديوهات المدفوعة
+
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/yourusername/tube)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![HTML](https://img.shields.io/badge/HTML-5-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS-3-blue.svg)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/InstaPay-✅-green" alt="InstaPay">
+  <img src="https://img.shields.io/badge/💰-مدفوعات-ff69b4" alt="Payments">
+  <img src="https://img.shields.io/badge/📱-متجاوب-9cf" alt="Responsive">
+</p>
+
+---
+
+## 📖 عن المشروع
+
+**Tube** هو منصة فيديوهات تشبه يوتيوب ولكن مع ميزة إضافية وهي **نظام الدفع والشراء**. يمكن للمستخدمين رفع فيديوهات (مجانية أو مدفوعة) وبيعها للمشاهدين عبر طريقتين:
+
+- **💰 المحفظة الافتراضية** (رصيد داخلي)
+- **📱 InstaPay** (دفع حقيقي عبر تطبيق InstaPay)
+
+---
+
+## ✨ المميزات الرئيسية
+
+### 🎥 إدارة الفيديوهات
+- ✅ رفع فيديوهات مع عنوان ووصف وسعر
+- ✅ عرض الفيديوهات في شبكة (Grid) مع صور مصغرة
+- ✅ تشغيل تلقائي عند تمرير الماوس (Hover)
+- ✅ ترقيم الصفحات (Pagination) مع زر "تحميل المزيد"
+- ✅ حذف فيديو فردي أو حذف الكل
+
+### 💳 نظام الدفع
+- ✅ **محفظة افتراضية** مع رصيد ابتدائي 10$ للتجربة
+- ✅ **InstaPay** للدفع الحقيقي عبر البنوك المصرية
+- ✅ رمز مرجعي فريد لكل عملية دفع
+- ✅ حالة "قيد الانتظار" حتى تأكيد الدفع
+- ✅ تأكيد يدوي للدفع بعد التحويل
+
+### 📊 إحصائيات
+- ✅ عدد المشاهدات لكل فيديو
+- ✅ عدد المشتريات لكل فيديو
+- ✅ رصيد المحفظة
+- ✅ سجل المشتريات بالكامل
+
+### 🎨 واجهة المستخدم
+- ✅ تصميم عصري ومستوحى من يوتيوب
+- ✅ متجاوب بالكامل (يدعم جميع الأجهزة)
+- ✅ إشعارات (Toast Notifications)
+- ✅ اختصارات لوحة المفاتيح (مفتاح ESC)
+- ✅ دعم كامل للغة العربية
+
+---
+
+## 🚀 طريقة التثبيت والتشغيل
+
+### المتطلبات الأساسية
+- متصفح حديث (Chrome, Edge, Firefox, Safari)
+- اتصال بالإنترنت (لتحميل Font Awesome وفتح رابط InstaPay)
+
+### خطوات التثبيت
+
+1. **انسخ الكود** إلى ملف جديد باسم `index.html`:
+
+```bash
+# أنشئ ملف جديد
+touch index.html
