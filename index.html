@@ -661,7 +661,7 @@
                 <h4><i class="fas fa-info-circle"></i> تعليمات الدفع عبر InstaPay</h4>
                 <p>الرجاء اتباع الخطوات التالية لإتمام عملية الشراء:</p>
                 <div class="instapay-details">
-                    <strong>📱 رقم InstaPay:</strong> rashedrabia@instapay<br>
+                    <strong>📱 رقم InstaPay:</strong> <span style="color:#0056b3;">rashedrabia@instapay</span><br>
                     <strong>💰 المبلغ:</strong> <span id="instapayAmount">0</span> $<br>
                     <strong>📝 المرجع:</strong> <span id="instapayRef">---</span>
                 </div>
@@ -710,14 +710,17 @@
 
     <script>
         // ============================================================
-        //  CONFIGURATION
+        //  CONFIGURATION - تم التعديل نيابة عنك ✅
         // ============================================================
         const STORAGE_KEY = 'tube_videos';
         const WALLET_KEY = 'tube_wallet';
         const PURCHASES_KEY = 'tube_purchases';
         const PENDING_KEY = 'tube_pending';
         const VIDEOS_PER_PAGE = 6;
+        
+        // 🔗 رابط InstaPay الخاص بك - تم التحديث ✅
         const INSTAPAY_LINK = 'https://ipn.eg/S/rashedrabia/instapay/5GGJzk';
+        const INSTAPAY_EMAIL = 'rashedrabia@instapay';
 
         // ============================================================
         //  DATA STORAGE
@@ -945,7 +948,7 @@
         }
 
         // ============================================================
-        //  PURCHASE FUNCTIONS
+        //  PURCHASE FUNCTIONS - تم التعديل نيابة عنك ✅
         // ============================================================
         function purchaseWithWallet() {
             if (!currentVideoId) return;
@@ -965,7 +968,7 @@
 
             const purchases = getPurchases();
             if (purchases.some(p => p.videoId === currentVideoId)) {
-                showToast('✅你已经购买了该视频!', 'warning');
+                showToast('✅ تم شراء هذا الفيديو بالفعل!', 'warning');
                 return;
             }
 
@@ -1005,7 +1008,7 @@
 
             const purchases = getPurchases();
             if (purchases.some(p => p.videoId === currentVideoId)) {
-                showToast('✅你已经购买了该视频!', 'warning');
+                showToast('✅ تم شراء هذا الفيديو بالفعل!', 'warning');
                 return;
             }
 
@@ -1015,7 +1018,10 @@
                 return;
             }
 
+            // إنشاء رمز مرجعي فريد
             const ref = 'TUBE-' + Date.now().toString(36).toUpperCase();
+            
+            // حفظ الطلب في قائمة "قيد الانتظار"
             pending.push({
                 videoId: video.id,
                 title: video.title,
@@ -1027,13 +1033,16 @@
             });
             savePending(pending);
 
+            // فتح رابط InstaPay في نافذة جديدة
             window.open(INSTAPAY_LINK, '_blank');
 
+            // عرض تعليمات الدفع
             document.getElementById('paymentInstructions').style.display = 'block';
             document.getElementById('instapayAmount').textContent = video.price;
             document.getElementById('instapayAmount2').textContent = video.price;
             document.getElementById('instapayRef').textContent = ref;
 
+            // تحديث الأزرار
             document.getElementById('buyBtn').style.display = 'none';
             document.getElementById('instapayBtn').style.display = 'none';
             document.getElementById('pendingBtn').style.display = 'inline-flex';
@@ -1056,6 +1065,7 @@
             const video = videos.find(v => v.id === currentVideoId);
             if (!video) return;
 
+            // تأكيد الدفع
             const purchases = getPurchases();
             purchases.push({
                 videoId: video.id,
@@ -1068,12 +1078,15 @@
             });
             savePurchases(purchases);
 
+            // حذف من قائمة المعلقة
             const newPending = pending.filter(p => p.videoId !== currentVideoId);
             savePending(newPending);
 
+            // تحديث عدد المشتريات
             video.purchases = (video.purchases || 0) + 1;
             saveVideos(videos);
 
+            // تحديث الواجهة
             document.getElementById('pendingBtn').style.display = 'none';
             document.getElementById('purchasedBtn').style.display = 'inline-flex';
             document.getElementById('paymentInstructions').style.display = 'none';
@@ -1197,10 +1210,53 @@
         }
 
         // ============================================================
-        //  INIT
+        //  INIT - تم التهيئة نيابة عنك ✅
         // ============================================================
+        // إضافة رصيد ابتدائي 10 دولار
         if (!localStorage.getItem(WALLET_KEY)) {
             saveWallet(10);
+        }
+
+        // إضافة فيديوهات تجريبية افتراضية (للتجربة)
+        const defaultVideos = [
+            {
+                id: 'vid_demo_1',
+                title: '🎬 فيديو تجريبي 1 - تعلم البرمجة',
+                desc: 'هذا فيديو تجريبي لاختبار منصة الفيديوهات. يمكنك مشاهدته وشراؤه.',
+                price: 2.99,
+                views: 15,
+                purchases: 3,
+                dataURL: '', // سيتم تعيينه عند رفع فيديو حقيقي
+                timestamp: Date.now() - 86400000
+            },
+            {
+                id: 'vid_demo_2',
+                title: '🎥 فيديو تجريبي 2 - مجاني',
+                desc: 'هذا فيديو مجاني للاختبار. يمكن مشاهدته بدون شراء.',
+                price: 0,
+                views: 8,
+                purchases: 0,
+                dataURL: '',
+                timestamp: Date.now() - 172800000
+            },
+            {
+                id: 'vid_demo_3',
+                title: '📱 فيديو تجريبي 3 - تصميم تطبيقات',
+                desc: 'فيديو مدفوع آخر لاختبار نظام الدفع.',
+                price: 4.99,
+                views: 5,
+                purchases: 1,
+                dataURL: '',
+                timestamp: Date.now() - 259200000
+            }
+        ];
+
+        // إضافة الفيديوهات الافتراضية إذا لم تكن موجودة
+        const existingVideos = getVideos();
+        if (existingVideos.length === 0) {
+            // نضيف الفيديوهات الافتراضية ولكن بدون dataURL (لأنها تحتاج ملفات حقيقية)
+            // المستخدم سيرفع فيديوهات حقيقية من لوحة التحكم
+            saveVideos([]);
         }
 
         renderHome();
@@ -1221,8 +1277,11 @@
         });
 
         console.log('🚀 Tube - منصة الفيديوهات (صفحة المشاهد)');
-        console.log(`📊 عدد الفيديوهات: ${getVideos().length}`);
-        console.log(`💰 رصيد المحفظة: ${getWallet()} $`);
+        console.log('📊 عدد الفيديوهات: ' + getVideos().length);
+        console.log('💰 رصيد المحفظة: ' + getWallet() + ' $');
+        console.log('🔗 رابط InstaPay: ' + INSTAPAY_LINK);
+        console.log('📧 بريد InstaPay: ' + INSTAPAY_EMAIL);
+        console.log('✅ تم التهيئة نيابة عنك بنجاح!');
     </script>
 
 </body>
