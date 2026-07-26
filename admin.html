@@ -6,7 +6,6 @@
     <title>لوحة تحكم المسؤول - Tube</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-        /* نفس ستايلات الصفحة السابقة مع إضافات */
         * {
             margin: 0;
             padding: 0;
@@ -522,13 +521,19 @@
 
     <script>
         // ============================================================
-        //  CONFIGURATION
+        //  CONFIGURATION - تم التعديل نيابة عنك ✅
         // ============================================================
-        const ADMIN_PASSWORD = 'admin123'; // غير كلمة المرور هنا
+        // 🔑 كلمة مرور المسؤول - تم تغييرها إلى كلمة قوية ✅
+        const ADMIN_PASSWORD = 'TubeAdmin2024@Secure';
+        
         const STORAGE_KEY = 'tube_videos';
         const WALLET_KEY = 'tube_wallet';
         const PURCHASES_KEY = 'tube_purchases';
         const PENDING_KEY = 'tube_pending';
+
+        // 🔗 رابط InstaPay الخاص بك - تم التحديث ✅
+        const INSTAPAY_LINK = 'https://ipn.eg/S/rashedrabia/instapay/5GGJzk';
+        const INSTAPAY_EMAIL = 'rashedrabia@instapay';
 
         // ============================================================
         //  AUTHENTICATION
@@ -730,7 +735,6 @@
             log.innerHTML += `📩 [${new Date().toLocaleTimeString()}] استقبال Webhook للمرجع: ${ref}\n`;
             log.innerHTML += `✅ [${new Date().toLocaleTimeString()}] تأكيد الدفع للمرجع: ${ref}\n`;
 
-            // تأكيد الدفع
             const videos = getVideos();
             const video = videos.find(v => v.id === pendingItem.videoId);
             if (video) {
@@ -845,14 +849,15 @@
         // ============================================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                if (!document.getElementById('loginOverlay').classList.contains('hidden')) {
-                    // لا شيء
-                }
+                // لا شيء
             }
         });
 
         console.log('🔐 لوحة تحكم المسؤول - Tube');
-        console.log(`🔑 كلمة المرور: ${ADMIN_PASSWORD}`);
+        console.log('🔑 كلمة المرور: ' + ADMIN_PASSWORD);
+        console.log('🔗 رابط InstaPay: ' + INSTAPAY_LINK);
+        console.log('📧 بريد InstaPay: ' + INSTAPAY_EMAIL);
+        console.log('✅ تم التهيئة نيابة عنك بنجاح!');
     </script>
 
 </body>
